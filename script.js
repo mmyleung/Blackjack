@@ -5,26 +5,38 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
 
-console.log(`You have been dealt: ${randomPlayerNumber}`);
-if (randomPlayerNumber === 21) {
-    console.log(`YOU WIN!`);
-}
-
-var randomDealerNumber = getRndInteger(2, 11);
-
-console.log(`The dealer has been dealt: ${randomDealerNumber}`);
-
 
 // Psuedocode
 // Confirm to start the game play blackjack
 // Player gets a random number between 4-21 (replicates 2 cards)
-var playerNumber = getRndInteger(4, 21);
+var playerNumber = 21 //getRndInteger(4, 21);
 // Dealer gets a random number between 2-11 (replicates 1 card)
 var dealerNumber = getRndInteger(2,11)
 // User will see own number and dealer number
-`You have been dealt ${playerNumber}, the dealer has been dealt ${dealerNumber}. Press ok to hit or cancel to stay`
+//If number is equal to 21 then player wins
+
+//function to check if blackjack
+function blackJack (number) {
+    if (number === 21) {
+        alert(`You have ${playerNumber} - YOU WIN!`)
+    }
+}
+
+blackJack(playerNumber);
+
 // Player can decide to hit or stay
 // If hit add a random number between 2-11 to existing number
+if (confirm(`You have been dealt ${playerNumber}, the dealer has been dealt ${dealerNumber}. Press ok to hit or cancel to stay`)) {
+    playerNumber = playerNumber + getRndInteger(2, 11);
+    blackJack(playerNumber);
+    }
+else  {
+    if (dealerNumber < 17) {
+        dealerNumber = dealerNumber + getRndInteger(2, 11)
+    } else {
+
+    }
+}
 // If stay then stop and evaluate dealer number
 // If dealer number is less than 17, then add random number between 2-11 to existing number
 // Evaluate again and repeat if dealer number is less than 17
