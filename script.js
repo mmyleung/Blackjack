@@ -9,16 +9,18 @@ function getRndInteger(min, max) {
 // Psuedocode
 // Confirm to start the game play blackjack
 // Player gets a random number between 4-21 (replicates 2 cards)
-var playerNumber = 21 //getRndInteger(4, 21);
+var playerNumber = getRndInteger(4, 21);
 // Dealer gets a random number between 2-11 (replicates 1 card)
 var dealerNumber = getRndInteger(2,11)
 // User will see own number and dealer number
 //If number is equal to 21 then player wins
 
-//function to check if blackjack
+//function to check if blackjack or bust
 function blackJack (number) {
     if (number === 21) {
-        alert(`You have ${playerNumber} - YOU WIN!`)
+        alert(`You have ${playerNumber} - YOU WIN! :)`)
+    } else if (number > 21) {
+        alert(`You have ${playerNumber} - YOU LOST! :(`)
     }
 }
 
@@ -26,6 +28,10 @@ blackJack(playerNumber);
 
 // Player can decide to hit or stay
 // If hit add a random number between 2-11 to existing number
+
+//function to add card if press ok to hit
+
+function hit (){};
 if (confirm(`You have been dealt ${playerNumber}, the dealer has been dealt ${dealerNumber}. Press ok to hit or cancel to stay`)) {
     playerNumber = playerNumber + getRndInteger(2, 11);
     blackJack(playerNumber);
