@@ -1,4 +1,4 @@
-var randomPlayerNumber = getRndInteger(4, 21);
+
 
 //function that returns number inclusive of min and max
 function getRndInteger(min, max) {
@@ -18,8 +18,11 @@ console.log(`The dealer has been dealt: ${randomDealerNumber}`);
 // Psuedocode
 // Confirm to start the game play blackjack
 // Player gets a random number between 4-21 (replicates 2 cards)
+var playerNumber = getRndInteger(4, 21);
 // Dealer gets a random number between 2-11 (replicates 1 card)
+var dealerNumber = getRndInteger(2,11)
 // User will see own number and dealer number
+`You have been dealt ${playerNumber}, the dealer has been dealt ${dealerNumber}. Press ok to hit or cancel to stay`
 // Player can decide to hit or stay
 // If hit add a random number between 2-11 to existing number
 // If stay then stop and evaluate dealer number
